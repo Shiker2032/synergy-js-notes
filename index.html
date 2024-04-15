@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Заметки</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Мои Заметки</h1>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="noteInput"
+          placeholder="Введите заметку" />
+      </div>
+      <button class="btn btn-primary btn-block" id="addNoteBtn">
+        Добавить Заметку
+      </button>
+      <div id="notesList" class="mt-4"></div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

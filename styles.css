@@ -1,0 +1,14 @@
+.note {
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.note.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.note.slide-out {
+  opacity: 0;
+  transform: translateY(-100%);
+}
