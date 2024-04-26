@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const noteText = noteInput.value.trim();
     // Проверяем, что введен не пустой текст и создаем новую заметку
     if (noteText !== "") {
-      const note = createNoteElement(noteText);      
+      const note = createNoteElement(noteText);
       notesList.appendChild(note);
       noteInput.value = "";
 
@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
   notesList.addEventListener("click", function (e) {
     if (e.target.classList.contains("deleteBtn")) {
       // Если кликнули на кнопку удаления то удаляем заметку
-      const note = e.target.parentElement;      
+      const note = e.target.parentElement;
       note.classList.add("slide-out");
-      setTimeout(() => {        
-        notesList.removeChild(note);        
+      setTimeout(() => {
+        notesList.removeChild(note);
         saveNotes();
       }, 300);
     } else if (e.target.classList.contains("editBtn")) {
@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
       editInput.type = "text";
       editInput.value = editText;
       editInput.classList.add("form-control");
-      note.insertAdjacentElement('beforeend', editInput);
+      note.insertAdjacentElement("beforeend", editInput);
       // Скрываем текст заметки
-      span.style.display = "none"; 
-      e.target.style.display = "none"; 
+      span.style.display = "none";
+      e.target.style.display = "none";
       // Добавляем кнопку сохранения изменений
       const saveBtn = document.createElement("button");
       saveBtn.innerText = "Сохранить";
@@ -56,11 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (newText !== "") {
           // Обновляем текст заметки
           span.innerText = newText;
-          span.style.display = "inline"; 
+          span.style.display = "inline";
           // Удаляем поле ввода и кнопку сохранения
-          note.removeChild(editInput); 
-          note.removeChild(saveBtn); 
-          e.target.style.display = "inline";    
+          note.removeChild(editInput);
+          note.removeChild(saveBtn);
+          e.target.style.display = "inline";
           saveNotes();
         } else {
           note.remove();
@@ -91,15 +91,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Функция создания верстки заметки
   function createNoteElement(noteText) {
     const note = document.createElement("div");
-    note.style = "display: grid;  grid-template-columns: repeat(3, 1fr)"
-    note.className =
-      "note alert alert-info mb-2 slide-in";
+    note.style = "display: grid;  grid-template-columns: repeat(3, 1fr)";
+    note.className = "note alert alert-info mb-2 slide-in";
     note.innerHTML = `
         <span>${noteText}</span>
         <button class="btn btn-danger btn-sm ml-2 deleteBtn">Удалить</button>
         <button class="btn btn-primary btn-sm ml-2 editBtn">Редактировать</button>
       `;
     return note;
-  }  
+  }
   loadNotes();
 });
